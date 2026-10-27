@@ -6,3 +6,7 @@ dist/
 app/src-tauri/target/
 app/src-tauri/gen/schemas
 *.log
+
+# Local-only notes (not published)
+fugu-pet-prototype.html
+desktop-pet-plan.md

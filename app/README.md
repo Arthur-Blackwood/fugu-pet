@@ -1,6 +1,6 @@
 # Fugu Pet (app)
 
-Tauri 2 + TypeScript + Three.js. The plan lives in [`../desktop-pet-plan.md`](../desktop-pet-plan.md).
+Tauri 2 + TypeScript + Three.js. Developer notes; the user guide is the [top-level README](../README.md).
 
 ## Run
 
@@ -42,7 +42,7 @@ Tidy rules (top-level Desktop **files** only; folders, hidden files and unknown 
 
 | Files | Go to |
 |---|---|
-| Screenshot… / Screen Recording… / 截屏… | `Pictures/Screenshots/YYYY-MM` |
+| Screenshot… / Screen Recording… (also the names macOS uses in other system languages) | `Pictures/Screenshots/YYYY-MM` |
 | PDFs | `Documents/PDF` |
 | dmg, pkg, exe, msi… | `Downloads/Installers` |
 | zip, rar, 7z… | `Downloads/Archives` |

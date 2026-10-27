@@ -66,7 +66,7 @@ npm run tauri dev                      # run with hot reload
 npm run tauri build -- --bundles app   # → src-tauri/target/release/bundle/macos/Fugu Pet.app
 ```
 
-More developer notes, including the code layout, how click-through works and testing in a sandbox, are in [`app/README.md`](app/README.md). The original design plan (in Chinese) is [`desktop-pet-plan.md`](desktop-pet-plan.md).
+More developer notes, including the code layout, how click-through works and testing in a sandbox, are in [`app/README.md`](app/README.md).
 
 ## Status
 
