@@ -23,7 +23,8 @@ file, show debug info (HUD + window bounds), reset position and quit.
 |---|---|
 | Drop files / folders on the fish | It swallows them into the **belly** (references only — nothing is moved or copied), grows with their total size, and opens the **action menu** |
 | Hover over the fish | It turns a shade lighter |
-| Click the fish | Opens the panel: **Belly**, **Recent**, **Tidy**. Click elsewhere or press Esc to close |
+| Click the fish | Opens the panel: **Belly**, **Recent**, **Tidy**, **Settings**. Click elsewhere or press Esc to close |
+| Tray → Play Mode | Click anywhere: the fish swims there. Double-click a Desktop file: it eats it (hidden until Play mode ends). Esc exits |
 | Double-click the fish | Puffs up and stays puffed; double-click again to let it go |
 | Drag the fish | Moves it; an open panel comes along |
 | Drag the panel's top bar | Moves the panel; the fish comes along |
@@ -93,7 +94,7 @@ src-tauri/src/
 ## How click-through works
 
 The window starts with `setIgnoreCursorEvents(true)`, so every click falls through to whatever is
-underneath. A Rust thread polls the global cursor (30 Hz near the pet, ~8 Hz far away) and sends it
+underneath. A Rust thread polls the global cursor (60 Hz over the pet, 30 Hz within the follow range set in Settings, ~8 Hz beyond it) and sends it
 to the page in window-local pixels. The page raycasts against the fish's body, eyes and fins; when
 the cursor is on the fish it turns cursor events back on, and turns them off again when it leaves.
 The same approach works on macOS and Windows; it doesn't use any per-platform hit-test APIs.
