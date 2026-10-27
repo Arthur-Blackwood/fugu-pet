@@ -1,0 +1,39 @@
+/* The fish's speech bubble. On macOS 26+ the window carries the system Liquid Glass
+   (same as the panel); otherwise `body:not(.glass)` draws a frosted fallback. */
+:root {
+  --ink: rgb(0 0 0 / 0.86);
+  --muted: rgb(0 0 0 / 0.55);
+  --fallback-bg: rgb(246 247 249 / 0.86);
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ink: rgb(255 255 255 / 0.92); --muted: rgb(255 255 255 / 0.6); --fallback-bg: rgb(36 38 42 / 0.88); }
+}
+html, body {
+  margin: 0;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  font: 13px/1.35 -apple-system, "SF Pro Text", "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: var(--ink);
+}
+.bubble {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  display: grid;
+  align-content: center;
+  padding: 0 18px;
+  box-shadow: inset 0 0 0 0.5px rgb(255 255 255 / 0.35);
+}
+body:not(.glass) .bubble {
+  inset: 4px;
+  background: var(--fallback-bg);
+  box-shadow: 0 6px 18px rgb(0 0 0 / 0.2), inset 0 0 0 0.5px rgb(0 0 0 / 0.08);
+}
+p { margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.title { font-weight: 600; }
+.detail { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }

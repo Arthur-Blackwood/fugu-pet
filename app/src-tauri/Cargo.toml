@@ -1,0 +1,48 @@
+[package]
+name = "fugu-pet"
+version = "0.1.0"
+description = "Fugu desktop pet"
+authors = ["fugu"]
+edition = "2024"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "fugu_pet_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["macos-private-api", "tray-icon"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+lopdf = "0.45"
+trash = "5"
+tauri-plugin-drag = "2.1.1"
+tauri-plugin-opener = "2"
+image = { version = "0.25", default-features = false, features = ["jpeg", "png", "webp", "bmp", "tiff", "gif"] }
+chrono = { version = "0.4.45", default-features = false, features = ["clock"] }
+tauri-plugin-liquid-glass = "0.1.6"
+base64 = "0.22"
+
+
+# Read the optimization guideline for more details: https://tauri.app/concept/size/#cargo-configuration
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+panic = "abort"
+strip = true
+
+[target.'cfg(target_os = "macos")'.dependencies]
+objc = "0.2"
+libc = "0.2"
+
+[lints.rust]
+# objc 0.2's macros test `feature = "cargo-clippy"`, which newer rustc flags.
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(feature, values("cargo-clippy"))'] }

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fugu Pet — Play</title>
+  </head>
+  <body>
+    <canvas id="glow" aria-hidden="true"></canvas>
+    <div class="frame" aria-hidden="true"></div>
+    <canvas id="fx" aria-hidden="true"></canvas>
+    <div id="sprites" aria-hidden="true"></div>
+    <div class="hint" role="status">
+      <span class="dot" aria-hidden="true"></span>
+      <span><strong>Play mode</strong> · Click anywhere and I’ll swim there · Double-click a Desktop file to feed me</span>
+      <button id="exit" type="button">Done <kbd>esc</kbd></button>
+    </div>
+    <div class="toast" id="toast" role="alert"></div>
+    <script type="module" src="/src/play/main.ts"></script>
+  </body>
+</html>

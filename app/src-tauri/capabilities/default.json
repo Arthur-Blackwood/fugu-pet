@@ -1,0 +1,22 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Capability for the pet, panel, bubble and play-mode windows",
+  "windows": [
+    "main",
+    "panel",
+    "bubble",
+    "play"
+  ],
+  "permissions": [
+    "core:default",
+    "core:window:allow-start-dragging",
+    "core:window:allow-set-ignore-cursor-events",
+    "core:window:allow-set-size",
+    "core:window:allow-set-position",
+    "core:window:allow-hide",
+    "drag:default",
+    "opener:allow-reveal-item-in-dir",
+    "liquid-glass:default"
+  ]
+}

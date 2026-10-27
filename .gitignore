@@ -1,0 +1,8 @@
+.DS_Store
+.claude/
+.vite/
+node_modules/
+dist/
+app/src-tauri/target/
+app/src-tauri/gen/schemas
+*.log
